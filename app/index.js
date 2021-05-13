@@ -3,7 +3,7 @@ const colors = require('colors');
 
 const exps = require('express');
 const morgan = require('morgan');
-
+const port = 3001;
 const server = exps(); 
 
 /* function logger (req,res,next){
@@ -11,8 +11,8 @@ const server = exps();
     next();
 }
  */
-server.use(morgan('dev')); 
 server.use(exps.json());
+server.use(morgan('dev'));
 /* server.use(logger);  */
 
 //Routing
@@ -23,10 +23,10 @@ server.use(exps.json());
 })
  */
 
-server.get('/',(req, res) => {
+server.get('/',morgan('tiny'),(req, res) => {
     res.send(`<h1>Get req recibida</h1>`)
 })
-server.get('/user',(req, res) => {
+server.get('/user',morgan('tiny'),(req, res) => {
     res.json(
         {
             userName: 'jose',
@@ -53,8 +53,10 @@ server.delete('/delete',(req, res) => {
 server.delete('/user/:userId',(req, res) => {
     res.send(`User ${req.params.userId} eliminated`)
 })
-server.listen(3001, ()=>{
-    console.log(`Server on port 3001`.red)
+
+server.use(exps.static('../public'))
+server.listen(port, ()=>{
+    console.log(`Server on port ${port}`.red);
 });
 
 /* 
@@ -76,4 +78,3 @@ const server = http.createServer(handleServer);
 server.listen(3000,()=>{
     console.log('server on port 3000'.green)
 }); */
-
