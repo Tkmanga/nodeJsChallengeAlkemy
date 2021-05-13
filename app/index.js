@@ -4,7 +4,7 @@ const exps = require('express');
 
 const server = exps(); 
 
-server.get('/',(req,res) => {
+server.get('/',(req, res) => {
     res.send(`<h1>Hola mundo</h1>`)
 })
 
