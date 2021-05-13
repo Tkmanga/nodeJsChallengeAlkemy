@@ -1,0 +1,26 @@
+{
+  "name": "nodejschallengealkemy",
+  "version": "1.0.0",
+  "description": "reto de Alkemy",
+  "main": "index.js",
+  "dependencies": {
+    "colors": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tkmanga/nodeJsChallengeAlkemy.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Tkmanga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tkmanga/nodeJsChallengeAlkemy/issues"
+  },
+  "homepage": "https://github.com/Tkmanga/nodeJsChallengeAlkemy#readme"
+}
