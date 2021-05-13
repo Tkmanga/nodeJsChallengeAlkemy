@@ -1,4 +1,4 @@
-const http = require('http');
+/* const http = require('http');
 const colors = require('colors');
 
 const handleServer = (req,res)=>{
@@ -12,4 +12,5 @@ const server = http.createServer(handleServer);
 
 server.listen(3000,()=>{
     console.log('server on port 3000'.green)
-});
+}); */
+
