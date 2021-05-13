@@ -1,3 +1,17 @@
+
+const colors = require('colors');
+const exps = require('express');
+
+const server = exps(); 
+
+server.get('/',(req,res) => {
+    res.send(`<h1>Hola mundo</h1>`)
+})
+
+server.listen(3000, ()=>{
+    console.log(`Server on port 3000`.red)
+});
+
 /* const http = require('http');
 const colors = require('colors');
 
