@@ -11,11 +11,9 @@ const server = exps();
     next();
 }
  */
+server.use(morgan('dev')); 
 server.use(exps.json());
 /* server.use(logger);  */
-server.use(morgan('dev')); 
-
-
 
 //Routing
 
@@ -28,7 +26,6 @@ server.use(morgan('dev'));
 server.get('/',(req, res) => {
     res.send(`<h1>Get req recibida</h1>`)
 })
-
 server.get('/user',(req, res) => {
     res.json(
         {
@@ -37,7 +34,6 @@ server.get('/user',(req, res) => {
         }
     );
 })
-
 server.post('/user/:id',(req, res) => {
     res.send(`<h1>Post recibida</h1>`)
     console.log(req.body);
@@ -51,16 +47,12 @@ server.put('/user/:id',(req, res) => {
     console.log(req.params)
     res.send(`User ${req.params.id} actualizado`); 
 })
-
-
-
 server.delete('/delete',(req, res) => {
     res.send(`<h1>Pet delete recibida</h1>`)
 })
 server.delete('/user/:userId',(req, res) => {
     res.send(`User ${req.params.userId} eliminated`)
 })
-
 server.listen(3001, ()=>{
     console.log(`Server on port 3001`.red)
 });
