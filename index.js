@@ -11,6 +11,10 @@ const server = exps();
     next();
 }
  */
+//settings 
+server.set('appName','Alk reto'); 
+server.port('')
+//middlewares 
 server.use(exps.json());
 server.use(morgan('dev'));
 /* server.use(logger);  */
@@ -23,10 +27,9 @@ server.use(morgan('dev'));
 })
  */
 
-server.get('/',morgan('tiny'),(req, res) => {
-    res.send(`<h1>Get req recibida</h1>`)
-})
-server.get('/user',morgan('tiny'),(req, res) => {
+
+
+server.get('/user',(req, res) => {
     res.json(
         {
             userName: 'jose',
@@ -34,6 +37,7 @@ server.get('/user',morgan('tiny'),(req, res) => {
         }
     );
 })
+
 server.post('/user/:id',(req, res) => {
     res.send(`<h1>Post recibida</h1>`)
     console.log(req.body);
@@ -54,7 +58,7 @@ server.delete('/user/:userId',(req, res) => {
     res.send(`User ${req.params.userId} eliminated`)
 })
 
-server.use(exps.static('../public'))
+server.use(exps.static('public'))
 server.listen(port, ()=>{
     console.log(`Server on port ${port}`.red);
 });
