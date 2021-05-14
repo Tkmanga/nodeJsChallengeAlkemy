@@ -13,10 +13,12 @@ const server = exps();
  */
 //settings 
 server.set('appName','Alk reto'); 
-server.port('')
+server.set('port',3001);
 //middlewares 
 server.use(exps.json());
 server.use(morgan('dev'));
+server.set('view engine','ejs'); 
+
 /* server.use(logger);  */
 
 //Routing
@@ -27,7 +29,10 @@ server.use(morgan('dev'));
 })
  */
 
-
+server.get('/',(req,res)=>{
+    const data = [{name:'jhon'},{name:'joe'},{name:'cameron'}]
+    res.render('index.ejs',{people:data});
+});
 
 server.get('/user',(req, res) => {
     res.json(
@@ -59,8 +64,8 @@ server.delete('/user/:userId',(req, res) => {
 })
 
 server.use(exps.static('public'))
-server.listen(port, ()=>{
-    console.log(`Server on port ${port}`.red);
+server.listen(server.get('port'), ()=>{
+    console.log(`Server on port ${server.get('port')}`.red);
 });
 
 /* 
