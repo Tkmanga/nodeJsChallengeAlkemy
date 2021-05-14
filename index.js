@@ -11,9 +11,11 @@ const server = exps();
     next();
 }
  */
+
 //settings 
 server.set('appName','Alk reto'); 
 server.set('port',3001);
+
 //middlewares 
 server.use(exps.json());
 server.use(morgan('dev'));
